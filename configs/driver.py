@@ -15,7 +15,7 @@ dataset_type = "GeospatialDataset"
 data_root = "/content/drive/MyDrive/Dbx"
 
 num_frames = 1
-img_size = 224
+img_size = 1024
 num_workers = 1
 samples_per_gpu = 1
 
@@ -33,8 +33,8 @@ img_norm_cfg = dict(
 )  # change the mean and std of all the bands
 
 bands = [0, 1, 2]
-tile_size = 224
-orig_nsize = 224
+tile_size = 1024
+orig_nsize = 1024
 crop_size = (tile_size, tile_size)
 img_suffix = "_merged.tif"
 seg_map_suffix = "_mask.tif"
@@ -70,12 +70,12 @@ train_pipeline = [
     ),
     dict(type="LoadGeospatialAnnotations", reduce_zero_label=False),
     dict(type="BandsExtract", bands=bands),
-    dict(type="RandomFlip", prob=0.5),
+   # dict(type="RandomFlip", prob=0.5),
     dict(type="ToTensor", keys=["img", "gt_semantic_seg"]),
     # to channels first
     dict(type="TorchPermute", keys=["img"], order=(2, 0, 1)),
-    dict(type="TorchNormalize", **img_norm_cfg),
-    dict(type="TorchRandomCrop", crop_size=(tile_size, tile_size)),
+  #  dict(type="TorchNormalize", **img_norm_cfg),
+   # dict(type="TorchRandomCrop", crop_size=(tile_size, tile_size)),
     dict(
         type="Reshape",
         keys=["img"],
@@ -108,7 +108,7 @@ test_pipeline = [
     dict(type="ToTensor", keys=["img"]),
     # to channels first
     dict(type="TorchPermute", keys=["img"], order=(2, 0, 1)),
-    dict(type="TorchNormalize", **img_norm_cfg),
+  #  dict(type="TorchNormalize", **img_norm_cfg),
     dict(
         type="Reshape",
         keys=["img"],
