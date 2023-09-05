@@ -120,10 +120,10 @@ def inference_on_file(model, target_image, output_image, custom_test_pipeline):
         ##### get metadata mask
         mask = open_tiff(target_image)
         meta = get_meta(target_image)
-        mask = np.where(mask == meta['nodata'], 1, 0)
-        mask = np.max(mask, axis=0)[None]
+        # mask = np.where(mask == meta['nodata'], 1, 0)
+        # mask = np.max(mask, axis=0)[None]
 
-        result[0] = np.where(mask == 1, -1, result[0])
+        # result[0] = np.where(mask == 1, -1, result[0])
 
         ##### Save file to disk
         meta["count"] = 1
