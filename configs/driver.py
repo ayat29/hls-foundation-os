@@ -16,8 +16,8 @@ data_root = "/content/drive/MyDrive/Dbx"
 
 num_frames = 1
 img_size = 1024
-num_workers = 1
-samples_per_gpu = 1
+num_workers = 2
+samples_per_gpu = 2
 
 img_norm_cfg = dict(
     means=[
