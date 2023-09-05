@@ -239,8 +239,8 @@ model = dict(
         embed_dim=embed_dim*num_frames,
         output_embed_dim=output_embed_dim,
         drop_cls_token=True,
-        Hp=14,
-        Wp=14
+        Hp=16,
+        Wp=16
     ),
     decode_head=dict(
         num_classes=len(CLASSES),
