@@ -15,7 +15,7 @@ dataset_type = "GeospatialDataset"
 data_root = "/content/drive/MyDrive/Dbx"
 
 num_frames = 1
-img_size = 512
+img_size = 672
 num_workers = 2
 samples_per_gpu = 2
 
@@ -33,8 +33,8 @@ img_norm_cfg = dict(
 )  # change the mean and std of all the bands
 
 bands = [0, 1, 2]
-tile_size = 512
-orig_nsize = 512
+tile_size = 672
+orig_nsize = 672
 crop_size = (tile_size, tile_size)
 img_suffix = "_merged.tif"
 seg_map_suffix = "_mask.tif"
@@ -239,8 +239,8 @@ model = dict(
         embed_dim=embed_dim*num_frames,
         output_embed_dim=output_embed_dim,
         drop_cls_token=True,
-        Hp=16,
-        Wp=16
+        Hp=14,
+        Wp=14
     ),
     decode_head=dict(
         num_classes=len(CLASSES),
