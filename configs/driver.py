@@ -12,7 +12,7 @@ cudnn_benchmark = True
 dataset_type = "GeospatialDataset"
 
 # TO BE DEFINED BY USER: data directory
-data_root = "/content/Dbx_images"
+data_root = "/content/drive/MyDrive/Dbx"
 
 num_frames = 1
 img_size = 224
@@ -147,8 +147,8 @@ data = dict(
         type=dataset_type,
         CLASSES=CLASSES,
         data_root=data_root,
-        img_dir="validation",
-        ann_dir="validation",
+        img_dir="training",
+        ann_dir="training",
         img_suffix=img_suffix,
         seg_map_suffix=seg_map_suffix,
         pipeline=train_pipeline,
