@@ -17,7 +17,7 @@ data_root = "/content/Dbx_images"
 num_frames = 1
 img_size = 224
 num_workers = 2
-samples_per_gpu = 16
+samples_per_gpu = 8
 
 img_norm_cfg = dict(
     means=[
