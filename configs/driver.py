@@ -21,14 +21,14 @@ samples_per_gpu = 2
 
 img_norm_cfg = dict(
     means=[
-        0.033349706741586264,
-        0.05701185520536176,
-        0.05889748132001316,
+        0.,
+        0.,
+        0.,
     ],
     stds=[
-        0.02269135568823774,
-        0.026807560223070237,
-        0.04004109844362779,
+        0.5,
+        0.5,
+        0.5,
     ],
 )  # change the mean and std of all the bands
 
@@ -52,8 +52,8 @@ embed_dim = 768
 num_heads = 12
 tubelet_size = 1
 output_embed_dim = num_frames*embed_dim
-max_intervals = 20
-evaluation_interval = 5
+max_intervals = 10000
+evaluation_interval = 100
 
 # TO BE DEFINED BY USER: model path
 experiment = "damaged_buildings_assessment"
