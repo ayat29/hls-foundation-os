@@ -15,7 +15,7 @@ dataset_type = "GeospatialDataset"
 data_root = "/content/drive/MyDrive/Dbx"
 
 num_frames = 1
-img_size = 672
+img_size = 224
 num_workers = 2
 samples_per_gpu = 2
 
@@ -33,7 +33,7 @@ img_norm_cfg = dict(
 )  # change the mean and std of all the bands
 
 bands = [0, 1, 2]
-tile_size = 672
+tile_size = 224
 orig_nsize = 672
 crop_size = (tile_size, tile_size)
 img_suffix = "_merged.tif"
