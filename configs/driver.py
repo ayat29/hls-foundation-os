@@ -138,7 +138,7 @@ test_pipeline = [
     )
 ]
 
-CLASSES = ("Damaged Building", "Undamaged Building")
+CLASSES = ("Ground", "Damaged Building")
 
 data = dict(
     samples_per_gpu=samples_per_gpu,
