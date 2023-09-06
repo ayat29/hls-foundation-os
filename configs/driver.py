@@ -74,7 +74,7 @@ train_pipeline = [
     dict(type="ToTensor", keys=["img", "gt_semantic_seg"]),
     # to channels first
     dict(type="TorchPermute", keys=["img"], order=(2, 0, 1)),
-    dict(type="TorchNormalize", **img_norm_cfg),
+   # dict(type="TorchNormalize", **img_norm_cfg),
     dict(type="TorchRandomCrop", crop_size=(tile_size, tile_size)),
     dict(
         type="Reshape",
@@ -108,7 +108,7 @@ test_pipeline = [
     dict(type="ToTensor", keys=["img"]),
     # to channels first
     dict(type="TorchPermute", keys=["img"], order=(2, 0, 1)),
-    dict(type="TorchNormalize", **img_norm_cfg),
+  #  dict(type="TorchNormalize", **img_norm_cfg),
     dict(
         type="Reshape",
         keys=["img"],
@@ -133,7 +133,7 @@ test_pipeline = [
             "ori_shape",
             "pad_shape",
             "scale_factor",
-            "img_norm_cfg"
+          #  "img_norm_cfg"
         ]
     )
 ]
