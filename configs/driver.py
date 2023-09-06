@@ -34,7 +34,7 @@ img_norm_cfg = dict(
 
 bands = [0, 1, 2]
 tile_size = 224
-orig_nsize = 672
+orig_nsize = 224
 crop_size = (tile_size, tile_size)
 img_suffix = "_merged.tif"
 seg_map_suffix = "_mask.tif"
