@@ -52,8 +52,8 @@ embed_dim = 768
 num_heads = 12
 tubelet_size = 1
 output_embed_dim = num_frames*embed_dim
-max_intervals = 10
-evaluation_interval = 4
+max_intervals = 20
+evaluation_interval = 5
 
 # TO BE DEFINED BY USER: model path
 experiment = "damaged_buildings_assessment"
