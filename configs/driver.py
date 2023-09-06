@@ -46,10 +46,10 @@ image_to_float32 = True
 # model
 # TO BE DEFINED BY USER: model path
 pretrained_weights_path = "/content/drive/MyDrive/Prithvi_weights/Prithvi_100M.pt"
-num_layers = 36
+num_layers = 12
 patch_size = 16
-embed_dim = 1024
-num_heads = 16
+embed_dim = 768
+num_heads = 12
 tubelet_size = 1
 output_embed_dim = num_frames*embed_dim
 max_intervals = 10000
@@ -181,7 +181,7 @@ optimizer_config = dict(grad_clip=None)
 lr_config = dict(
     policy="poly",
     warmup="linear",
-    warmup_iters=1,
+    warmup_iters=1000,
     warmup_ratio=1e-06,
     power=1.0,
     min_lr=0.0,
