@@ -12,7 +12,7 @@ cudnn_benchmark = True
 dataset_type = "GeospatialDataset"
 
 # TO BE DEFINED BY USER: data directory
-data_root = "/content/drive/MyDrive/Dbx"
+data_root = "/content/Dbx_images"
 
 num_frames = 1
 img_size = 224
