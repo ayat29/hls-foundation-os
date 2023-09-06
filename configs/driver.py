@@ -176,7 +176,7 @@ data = dict(
     )
 )
 
-optimizer = dict(type="Adam", lr=1.3e-05, betas=(0.9, 0.999))
+optimizer = dict(type="Adam", lr=3e-06, betas=(0.9, 0.999))
 optimizer_config = dict(grad_clip=None)
 lr_config = dict(
     policy="poly",
