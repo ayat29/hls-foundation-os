@@ -17,7 +17,7 @@ data_root = "/content/Dbx_images"
 num_frames = 1
 img_size = 224
 num_workers = 2
-samples_per_gpu = 2
+samples_per_gpu = 16
 
 img_norm_cfg = dict(
     means=[
@@ -176,12 +176,12 @@ data = dict(
     )
 )
 
-optimizer = dict(type="Adam", lr=1.3e-05, betas=(0.9, 0.999))
+optimizer = dict(type="Adam", lr=1.0e-07, betas=(0.9, 0.999))
 optimizer_config = dict(grad_clip=None)
 lr_config = dict(
     policy="poly",
     warmup="linear",
-    warmup_iters=1000,
+    warmup_iters=1,
     warmup_ratio=1e-06,
     power=1.0,
     min_lr=0.0,
