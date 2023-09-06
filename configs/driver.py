@@ -26,9 +26,9 @@ img_norm_cfg = dict(
         0.05889748132001316,
     ],
     stds=[
-        0.5,
-        0.5,
-        0.5,
+        0.02269135568823774,
+        0.026807560223070237,
+        0.04004109844362779,
     ],
 )  # change the mean and std of all the bands
 
@@ -74,7 +74,7 @@ train_pipeline = [
     dict(type="ToTensor", keys=["img", "gt_semantic_seg"]),
     # to channels first
     dict(type="TorchPermute", keys=["img"], order=(2, 0, 1)),
-   # dict(type="TorchNormalize", **img_norm_cfg),
+    dict(type="TorchNormalize", **img_norm_cfg),
     dict(type="TorchRandomCrop", crop_size=(tile_size, tile_size)),
     dict(
         type="Reshape",
@@ -108,7 +108,7 @@ test_pipeline = [
     dict(type="ToTensor", keys=["img"]),
     # to channels first
     dict(type="TorchPermute", keys=["img"], order=(2, 0, 1)),
-  #  dict(type="TorchNormalize", **img_norm_cfg),
+    dict(type="TorchNormalize", **img_norm_cfg),
     dict(
         type="Reshape",
         keys=["img"],
@@ -133,7 +133,7 @@ test_pipeline = [
             "ori_shape",
             "pad_shape",
             "scale_factor",
-          #  "img_norm_cfg"
+            "img_norm_cfg"
         ]
     )
 ]
