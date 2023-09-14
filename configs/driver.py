@@ -12,7 +12,7 @@ cudnn_benchmark = True
 dataset_type = "GeospatialDataset"
 
 # TO BE DEFINED BY USER: data directory
-data_root = "/content/Vegetation"
+data_root = "/content/Active_Fire"
 
 num_frames = 1
 img_size = 224
@@ -24,17 +24,18 @@ img_norm_cfg = dict(
         0.033349706741586264,
         0.05701185520536176,
         0.05889748132001316,
-        0.05,
+      #  0.05,
     ],
     stds=[
         0.02269135568823774,
         0.026807560223070237,
         0.04004109844362779,
-        0.05,
+       # 0.05,
     ],
 )  # change the mean and std of all the bands
 
-bands = [0, 1, 2, 3]
+#bands = [0, 1, 2, 3]
+bands = [0, 1, 2]
 tile_size = 224
 orig_nsize = 224
 crop_size = (tile_size, tile_size)
@@ -58,8 +59,8 @@ max_intervals = 10000
 evaluation_interval = 100
 
 # TO BE DEFINED BY USER: model path
-experiment = "vegetation"
-project_dir = "/content/vegetation_project"
+experiment = "active_fire"
+project_dir = "/content/active_fire_project"
 work_dir = os.path.join(project_dir, experiment)
 save_path = work_dir
 
