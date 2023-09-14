@@ -26,6 +26,9 @@ img_norm_cfg = dict(
         0.05889748132001316,
         0.05,
         0.05,
+        0.05,
+        0.05,
+        0.05,
     ],
     stds=[
         0.02269135568823774,
@@ -33,11 +36,14 @@ img_norm_cfg = dict(
         0.04004109844362779,
         0.05,
         0.05,
+        0.05,
+        0.05,
+        0.05,
     ],
 )  # change the mean and std of all the bands
 
 #bands = [0, 1, 2, 3]
-bands = [0, 1, 2, 3, 4]
+bands = [0, 1, 2, 3, 4, 5, 6, 7]
 tile_size = 224
 orig_nsize = 224
 crop_size = (tile_size, tile_size)
