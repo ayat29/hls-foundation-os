@@ -123,7 +123,7 @@ test_pipeline = [
     dict(
         type="LoadGeospatialImageFromFile",
         to_float32=image_to_float32,
-        channels_last=True
+        channels_last=False
     ),
     dict(type="BandsExtract", bands=bands),
     dict(type="ToTensor", keys=["img"]),
