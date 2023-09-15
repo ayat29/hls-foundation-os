@@ -159,7 +159,7 @@ test_pipeline = [
     )
 ]
 
-CLASSES = ('0', '1', '2')
+CLASSES = ('0', '1', '2', '3')
 
 data = dict(
     samples_per_gpu=samples_per_gpu,
