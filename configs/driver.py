@@ -87,7 +87,7 @@ train_pipeline = [
     dict(
         type="LoadGeospatialImageFromFile",
         to_float32=image_to_float32,
-        channels_last=True
+        channels_last=False
     ),
     dict(type="LoadGeospatialAnnotations", reduce_zero_label=False),
     dict(type="BandsExtract", bands=bands),
