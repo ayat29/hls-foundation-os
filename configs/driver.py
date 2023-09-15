@@ -12,7 +12,7 @@ cudnn_benchmark = True
 dataset_type = "GeospatialDataset"
 
 # TO BE DEFINED BY USER: data directory
-data_root = "/content/Burn_Veg"
+data_root = "/content/Burn_Veg_Flood"
 
 num_frames = 1
 img_size = 224
@@ -78,7 +78,7 @@ evaluation_interval = 100
 
 # TO BE DEFINED BY USER: model path
 experiment = "burn_veg"
-project_dir = "/content/burn_veg_project"
+project_dir = "/content/burn_veg_flood_project"
 work_dir = os.path.join(project_dir, experiment)
 save_path = work_dir
 
