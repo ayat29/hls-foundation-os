@@ -12,7 +12,7 @@ cudnn_benchmark = True
 dataset_type = "GeospatialDataset"
 
 # TO BE DEFINED BY USER: data directory
-data_root = "/content/Active_Fire"
+data_root = "/content/Burn_Veg"
 
 num_frames = 1
 img_size = 224
@@ -27,13 +27,13 @@ img_norm_cfg = dict(
         0.05,
         0.05,
         0.05,
-        0.05,
-        0.05,
-        0.05,
-        0.05,
-        0.05,
-        0.05,
-        0.05,
+        # 0.05,
+        # 0.05,
+        # 0.05,
+        # 0.05,
+        # 0.05,
+        # 0.05,
+        # 0.05,
     ],
     stds=[
         0.02269135568823774,
@@ -42,23 +42,23 @@ img_norm_cfg = dict(
         0.05,
         0.05,
         0.05,
-        0.05,
-        0.05,
-        0.05,
-        0.05,
-        0.05,
-        0.05,
-        0.05,
+        # 0.05,
+        # 0.05,
+        # 0.05,
+        # 0.05,
+        # 0.05,
+        # 0.05,
+        # 0.05,
     ],
 )  # change the mean and std of all the bands
 
 #bands = [0, 1, 2, 3]
-bands = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+bands = [0, 1, 2, 3, 4, 5]
 tile_size = 224
 orig_nsize = 224
 crop_size = (tile_size, tile_size)
 img_suffix = "_merged.tif"
-seg_map_suffix = "_mask.tif"
+seg_map_suffix = "mask.tif"
 ignore_index = -1
 image_nodata = -9999
 image_nodata_replace = 0
@@ -77,8 +77,8 @@ max_intervals = 10000
 evaluation_interval = 100
 
 # TO BE DEFINED BY USER: model path
-experiment = "active_fire"
-project_dir = "/content/active_fire_project"
+experiment = "burn_veg"
+project_dir = "/content/burn_veg_project"
 work_dir = os.path.join(project_dir, experiment)
 save_path = work_dir
 
@@ -159,7 +159,7 @@ test_pipeline = [
     )
 ]
 
-CLASSES = ("3", "4", "5", '6', '7', '8', '9')
+CLASSES = ('0', '1', '2', '3')
 
 data = dict(
     samples_per_gpu=samples_per_gpu,
