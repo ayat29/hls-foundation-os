@@ -496,8 +496,8 @@ class TemporalViTEncoder(nn.Module):
         cls_token = self.cls_token + self.pos_embed[:, :1, :]
         cls_tokens_x = cls_token.expand(x.shape[0], -1, -1)
         cls_tokens_y = cls_token.expand(y.shape[0], -1, -1)
-        x = torch.cat((cls_tokens, x), dim=1)
-        y = torch.cat((cls_tokens, y), dim=1)
+        x = torch.cat((cls_tokens_x, x), dim=1)
+        y = torch.cat((cls_tokens_y, y), dim=1)
 
         # apply Transformer blocks
         for blk in self.blocks:
