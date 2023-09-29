@@ -483,22 +483,28 @@ class TemporalViTEncoder(nn.Module):
             nn.init.constant_(m.bias, 0)
             nn.init.constant_(m.weight, 1.0)
 
-    def forward(self, x):
+    def forward(self, x, y):
         # embed patches
         x, _, _ = self.patch_embed(x)
+        y, _, _ = self.patch_embed(y)
 
         # add pos embed w/o cls token
         x = x + self.pos_embed[:, 1:, :]
+        y = y + self.pos_embed[:, 1:, :]
 
         # append cls token
         cls_token = self.cls_token + self.pos_embed[:, :1, :]
-        cls_tokens = cls_token.expand(x.shape[0], -1, -1)
+        cls_tokens_x = cls_token.expand(x.shape[0], -1, -1)
+        cls_tokens_y = cls_token.expand(y.shape[0], -1, -1)
         x = torch.cat((cls_tokens, x), dim=1)
+        y = torch.cat((cls_tokens, y), dim=1)
 
         # apply Transformer blocks
         for blk in self.blocks:
             x = blk(x)
+            y = blk(y)
 
         x = self.norm(x)
+        y = self.norm(y)
 
-        return tuple([x])
+        return tuple([x], [y])
