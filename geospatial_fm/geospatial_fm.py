@@ -507,4 +507,4 @@ class TemporalViTEncoder(nn.Module):
         x = self.norm(x)
         y = self.norm(y)
 
-        return tuple([x], [y])
+        return tuple([x, y])
