@@ -12,5 +12,5 @@ example_input_2 = torch.tensor(np.random.randn(1, 3, 1, 224, 224)).float()
 out = model(example_input_1, example_input_2)
 temp = out
 out = torch.cat((out[0][0], out[1][0])).reshape(1, 1, -1, 768)
-print(nodel(temp[0].reshape(1, 1, -1, 768)))
+print(out.shape)
 
