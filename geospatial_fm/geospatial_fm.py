@@ -510,6 +510,8 @@ class TemporalViTEncoder(nn.Module):
         x = self.norm(x)
         y = self.norm(y)
 
+        print(x.shape)
+
         out = torch.cat((x, y)).reshape(1, 1, -1, 768)
         out = self.flatten(out)
         out = self.readjustment_layer(out)
