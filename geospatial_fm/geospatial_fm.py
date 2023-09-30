@@ -452,9 +452,6 @@ class TemporalViTEncoder(nn.Module):
 
         self.initialize_weights()
 
-        self.flatten = nn.Flatten()
-        self.readjustment_layer = nn.Linear(394 * 768, 394 * 768 / 2)
-
     def initialize_weights(self):
         # initialization
         # initialize (and freeze) pos_embed by sin-cos embedding
@@ -510,13 +507,8 @@ class TemporalViTEncoder(nn.Module):
         x = self.norm(x)
         y = self.norm(y)
 
-        print(x.shape)
 
         out = torch.cat((x, y)).reshape(1, 1, -1, 768)
-        out = self.flatten(out)
-        out = self.readjustment_layer(out)
-        out = out.reshape(1, 197, 768)
 
-        return tuple([out])
+        return out
 
-        return tuple([x, y])
