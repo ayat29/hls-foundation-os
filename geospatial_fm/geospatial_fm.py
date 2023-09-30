@@ -315,6 +315,9 @@ class ConvTransformerTokensToEmbeddingNeck(nn.Module):
             self.W_out = _convTranspose2dOutput(
                 self.W_out, stride, padding, dilation, kernel_size, output_padding
             )
+            
+        self.flatten = nn.Flatten()
+        self.readjustment_layer = nn.Linear(394 * 768, 394 * 768 // 2)
 
         self.embed_dim = embed_dim
         self.output_embed_dim = output_embed_dim
@@ -364,6 +367,7 @@ class ConvTransformerTokensToEmbeddingNeck(nn.Module):
         )
 
     def forward(self, x):
+        print(x.shape)
         x = x[0]
         if self.drop_cls_token:
             x = x[:, 1:, :]
