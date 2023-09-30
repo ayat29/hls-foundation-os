@@ -364,7 +364,7 @@ class ConvTransformerTokensToEmbeddingNeck(nn.Module):
         )
 
     def forward(self, x):
-        print(x.shape)
+        x = tuple([torch.add(x[0], x[1])])
         x = x[0]
         if self.drop_cls_token:
             x = x[:, 1:, :]
@@ -509,7 +509,7 @@ class TemporalViTEncoder(nn.Module):
         y = self.norm(y)
 
 
-        out = torch.cat((x, y)).reshape(1, 1, -1, 768)
-
-        return out
+        #out = torch.cat((x, y)).reshape(1, 1, -1, 768)
+        
+        return tuple([x, y])
 
