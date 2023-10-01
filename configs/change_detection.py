@@ -13,7 +13,7 @@ cudnn_benchmark = True
 dataset_type = "GeospatialDataset"
 
 # TO BE DEFINED BY USER: data directory
-data_root = "/content/Burn_Veg_Flood"
+data_root = "/content/Disaster_Change_Detection"
 
 num_frames = 1
 img_size = 224
@@ -22,39 +22,25 @@ samples_per_gpu = 2
 
 img_norm_cfg = dict(
     means=[
-        0.033349706741586264,
-        0.05701185520536176,
-        0.05889748132001316,
         0.05,
         0.05,
         0.05,
         0.05,
         0.05,
         0.05,
-        # 0.05,
-        # 0.05,
-        # 0.05,
-        # 0.05,
     ],
     stds=[
-        0.02269135568823774,
-        0.026807560223070237,
-        0.04004109844362779,
         0.05,
         0.05,
         0.05,
         0.05,
         0.05,
         0.05,
-        # 0.05,
-        # 0.05,
-        # 0.05,
-        # 0.05,
     ],
 )  # change the mean and std of all the bands
 
 #bands = [0, 1, 2, 3]
-bands = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+bands = [0, 1, 2, 3, 4, 5]
 tile_size = 224
 orig_nsize = 224
 crop_size = (tile_size, tile_size)
@@ -78,8 +64,8 @@ max_intervals = 10000
 evaluation_interval = 100
 
 # TO BE DEFINED BY USER: model path
-experiment = "burn_veg"
-project_dir = "/content/burn_veg_flood_project"
+experiment = "change_detection"
+project_dir = "/content/change_detection_project"
 work_dir = os.path.join(project_dir, experiment)
 save_path = work_dir
 
@@ -160,7 +146,7 @@ test_pipeline = [
     )
 ]
 
-CLASSES = ('0', '1', '2', '3')
+CLASSES = ('0', '1')
 
 data = dict(
     samples_per_gpu=samples_per_gpu,
