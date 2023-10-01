@@ -484,8 +484,9 @@ class TemporalViTEncoder(nn.Module):
             nn.init.constant_(m.bias, 0)
             nn.init.constant_(m.weight, 1.0)
 
-    def forward(self, x, y):
+    def forward(self, w):
         # embed patches
+        x, y = w[:3, :, :].reshape(1024, 1024, 3), w[3:, :, :].reshape(1024, 1024, 3)
         x, _, _ = self.patch_embed(x)
         y, _, _ = self.patch_embed(y)
 
