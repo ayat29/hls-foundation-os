@@ -468,7 +468,7 @@ class TemporalViTEncoder(nn.Module):
         if isinstance(self.pretrained, str):
             self.apply(self._init_weights)
             print(f"load from {self.pretrained}")
-            load_checkpoint(self, self.pretrained, strict=False, map_location=torch.device('cpu'))
+            load_checkpoint(self, self.pretrained, strict=False) #, map_location=torch.device('cpu')
         elif self.pretrained is None:
             # # initialize nn.Linear and nn.LayerNorm
             self.apply(self._init_weights)
