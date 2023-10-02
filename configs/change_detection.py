@@ -226,7 +226,7 @@ workflow = [("train", 1)]
 norm_cfg = dict(type="BN", requires_grad=True)
 model = dict(
     type="TemporalEncoderDecoder",
-    frozen_backbone=True,
+    frozen_backbone=False,
     backbone=dict(
         type="TemporalViTEncoder",
         pretrained=pretrained_weights_path,
