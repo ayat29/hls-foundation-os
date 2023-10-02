@@ -369,4 +369,7 @@ class LoadGeospatialAnnotations(object):
 
         results["gt_semantic_seg"] = gt_semantic_seg
         results["seg_fields"].append("gt_semantic_seg")
+        print("Inspection")
+        print(gt_semantic_seg)
+        print(gt_semantic_seg.shape)
         return results
