@@ -18,7 +18,7 @@ data_root = "/content/Change_Detection_Dataset"
 num_frames = 1
 img_size = 224
 num_workers = 2
-samples_per_gpu = 2
+samples_per_gpu = 3
 
 img_norm_cfg = dict(
     means=[
