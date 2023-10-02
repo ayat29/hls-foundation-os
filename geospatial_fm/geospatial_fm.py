@@ -511,6 +511,6 @@ class TemporalViTEncoder(nn.Module):
 
 
         #out = torch.cat((x, y)).reshape(1, 1, -1, 768)
-        
-        return tuple([x, y])
+        w = torch.add(x, y)
+        return tuple([w])
 
