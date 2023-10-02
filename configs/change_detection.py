@@ -19,7 +19,6 @@ num_frames = 1
 img_size = 224
 num_workers = 2
 samples_per_gpu = 2
-samples_per_cpu = 2
 
 img_norm_cfg = dict(
     means=[
@@ -152,8 +151,6 @@ CLASSES = ('0', '1')
 data = dict(
     samples_per_gpu=samples_per_gpu,
     workers_per_gpu=num_workers,
-    samples_per_cpu=samples_per_cpu,
-    workers_per_cpu=num_workers,
     train=dict(
         type=dataset_type,
         CLASSES=CLASSES,
