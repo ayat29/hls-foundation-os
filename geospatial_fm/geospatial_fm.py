@@ -376,6 +376,7 @@ class ConvTransformerTokensToEmbeddingNeck(nn.Module):
         x = x.reshape((-1, self.output_embed_dim, self.H_out, self.W_out))
 
         out = tuple([x])
+        print("Neck", out)
 
         return out
 
@@ -513,5 +514,6 @@ class TemporalViTEncoder(nn.Module):
         #out = torch.cat((x, y)).reshape(1, 1, -1, 768)
         #w = torch.add(x, y)
         #return tuple([x, y])
+        print("TemporalViT", x)
         return tuple([x])
 
