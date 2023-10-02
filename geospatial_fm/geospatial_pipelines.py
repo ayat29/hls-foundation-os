@@ -307,6 +307,7 @@ class LoadGeospatialImageFromFile(object):
             std=np.ones(num_channels, dtype=np.float32),
             to_rgb=False,
         )
+        print(img.shape)
         return results
 
     def __repr__(self):
