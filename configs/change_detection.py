@@ -283,5 +283,5 @@ model = dict(
         crop_size=(tile_size, tile_size),
     ),
 )
-gpu_ids = range(0, 1)
+gpu_ids = range(0, 0)
 auto_resume = False
