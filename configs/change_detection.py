@@ -13,7 +13,7 @@ cudnn_benchmark = True
 dataset_type = "GeospatialDataset"
 
 # TO BE DEFINED BY USER: data directory
-data_root = "/content/Change_Detection_Dataset"
+data_root = "/content/Flood"
 
 num_frames = 1
 img_size = 224
