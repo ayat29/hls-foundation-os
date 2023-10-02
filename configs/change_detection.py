@@ -4,7 +4,7 @@ import os
 custom_imports = dict(imports=["geospatial_fm"])
 
 # base options
-dist_params = dict(backend="naacl")
+dist_params = dict(backend="nccl")
 log_level = "INFO"
 load_from = None
 resume_from = None
