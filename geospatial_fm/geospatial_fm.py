@@ -364,7 +364,7 @@ class ConvTransformerTokensToEmbeddingNeck(nn.Module):
         )
 
     def forward(self, x):
-        x = tuple([torch.add(x[0], x[1])])
+        #x = tuple([torch.add(x[0], x[1])])
         x = x[0]
         if self.drop_cls_token:
             x = x[:, 1:, :]
@@ -484,33 +484,34 @@ class TemporalViTEncoder(nn.Module):
             nn.init.constant_(m.bias, 0)
             nn.init.constant_(m.weight, 1.0)
 
-    def forward(self, w):
+    def forward(self, x):
         # embed patches
-        x, y = w[:, :3, :, :, :], w[:, 3:, :, :, :]
+        #x, y = w[:, :3, :, :, :], w[:, 3:, :, :, :]
         x, _, _ = self.patch_embed(x)
-        y, _, _ = self.patch_embed(y)
+        #y, _, _ = self.patch_embed(y)
 
         # add pos embed w/o cls token
         x = x + self.pos_embed[:, 1:, :]
-        y = y + self.pos_embed[:, 1:, :]
+        #y = y + self.pos_embed[:, 1:, :]
 
         # append cls token
         cls_token = self.cls_token + self.pos_embed[:, :1, :]
         cls_tokens_x = cls_token.expand(x.shape[0], -1, -1)
-        cls_tokens_y = cls_token.expand(y.shape[0], -1, -1)
+        #cls_tokens_y = cls_token.expand(y.shape[0], -1, -1)
         x = torch.cat((cls_tokens_x, x), dim=1)
-        y = torch.cat((cls_tokens_y, y), dim=1)
+        #y = torch.cat((cls_tokens_y, y), dim=1)
 
         # apply Transformer blocks
         for blk in self.blocks:
             x = blk(x)
-            y = blk(y)
+            #y = blk(y)
 
         x = self.norm(x)
-        y = self.norm(y)
+       # y = self.norm(y)
 
 
         #out = torch.cat((x, y)).reshape(1, 1, -1, 768)
         #w = torch.add(x, y)
-        return tuple([x, y])
+        #return tuple([x, y])
+        return tuple([x])
 
